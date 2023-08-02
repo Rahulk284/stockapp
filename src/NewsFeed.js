@@ -4,13 +4,6 @@ import LineGraph from './LineGraph'
 import BuyingPower from './BuyingPower';
 import Portfolio from './Portfolio';
 import { db, auth } from './firebase'
-import { color } from '@mui/system';
-import { scales } from 'chart.js';
-
-
-function removeConsecutiveDuplicates(arr) {
-  return arr.filter((value, index) => index === 0 || value !== arr[index - 1]);
-}
 
 
 function NewsFeed() {

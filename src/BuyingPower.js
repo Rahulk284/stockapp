@@ -22,16 +22,6 @@ function BuyingPower() {
     }   
   }, [user]);
 
-  const updateBuyingPower = (amount) => {
-    db.collection('users')
-      .doc(user.uid)
-      .collection('userData')
-      .doc('buyingPower')
-      .update({ amount })
-      .then(() => {
-        setBuyingPower(amount); 
-      })
-  }
 
   return (
     <div className="buying__power">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Login from './Login'
@@ -11,7 +11,6 @@ import AppComp from './AppComp';
 
 function App() {
   const [, dispatch] = useStateValue();
-  const [authenticated, setAuthenticated] = useState(false);
 
 
   useEffect(() => {
@@ -24,14 +23,12 @@ function App() {
           type: 'SET_USER',
           user: authUser,
         })
-        setAuthenticated(true);
       } 
       else if (!authUser) {
         dispatch({
           type: 'SET_USER',
           user: null,
         })
-        setAuthenticated(false);
       }
     })
   }, [dispatch])

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './Stats.css'
 import axios from 'axios';
 import StatsRow from './StatsRow';
@@ -14,7 +14,7 @@ function Stats() {
     const[myStocks, setmyStocks] = useState([])
     const user = auth.currentUser;
 
-    const getMyStocks = () => {
+    const getMyStocks = useCallback(() => {
         if (user) {
           db.collection('users')
             .doc(user.uid)
@@ -38,7 +38,7 @@ function Stats() {
               });
             });
         }
-      };
+      }, [user]);
       
 
     const getStockData = async (stock) => {
@@ -92,7 +92,7 @@ function Stats() {
           .catch((error) => {
             console.error("Error fetching stock data:", error);
           });
-      }, [user?.uid]);
+      }, [user?.uid, getMyStocks]);
       
 
 

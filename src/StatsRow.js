@@ -3,7 +3,6 @@ import './StatsRow.css'
 import './Stats.js'
 import StockPop from './StockPop'
 import { db, auth } from './firebase'
-import { doc } from '@firebase/firestore';
 
 
 let newStockProfits = new Set();
@@ -13,16 +12,13 @@ function StatsRow(props) {
   const percentage = ((props.price - props.openPrice)/props.openPrice) * 100;
   const user = auth.currentUser;
 
-  const [buyQuantity, setBuyQuantity] = useState(1);
   const [showPop, setShowPop] = useState(false);
   const [selectedStock, setSelectedStock] = useState(null);
-  const [profit, setProfit] = useState('');
 
 
   
 useEffect(() => {
     calculateTotalProfitLoss()
-    newStockProfits = [];
 }, [user?.uid]);
 
 const formatDate= (dateString) => {
@@ -34,6 +30,7 @@ const formatDate= (dateString) => {
 }
 
 const calculateTotalProfitLoss = () => {
+  newStockProfits = [];
   if (!user) return;
   db.collection('users')
     .doc(user.uid)
@@ -156,10 +153,6 @@ const updatePortfolioHistory = (date) => {
     });
 };
 
-
-  const handleBuyQuantityChange = (event) => {
-      setBuyQuantity(event.target.value);
-  }
 
   const updateBuyingPower = (amount) => {
     db.collection('users')
@@ -447,7 +440,6 @@ const updatePortfolioHistory = (date) => {
         openPrice: props.openPrice,
         percentage: percentage,
         percentageColor: percentColor,
-        currentProfit: profit,
       });
       setShowPop(true)
   };

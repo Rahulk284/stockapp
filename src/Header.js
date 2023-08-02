@@ -1,7 +1,6 @@
 import React from 'react'
 import Logo from './robinhood.svg'
 import './Header.css'
-import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
 import { useStateValue } from './StateProvider'
 import { auth } from './firebase';
