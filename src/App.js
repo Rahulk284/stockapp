@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename='/stockapp'>
         <div className="app">
             <Routes>
                 <Route path="/Portfolio" element={[<Header/>, <h1>I am a portfolio page</h1>]}/>
