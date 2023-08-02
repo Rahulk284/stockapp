@@ -1,0 +1,140 @@
+/* This class represents the overlay */
+.pop__overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2600px;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    height: 100%;
+    /* Ensure it appears above everything else */
+    cursor: default;
+}
+
+/* This class represents the content of the modal (the popup) */
+.pop__content {
+    display: flex;
+    /* width: 17%; */
+    background-color: black;
+    border: 2px solid #606060;
+    padding: 12rem 2rem 3rem;
+    border-radius: 5px;
+    box-shadow: 0 0 12px rgb(220, 220, 220);
+    z-index: 10000;
+    /* Ensure it appears above the overlay */
+    position: relative;
+}
+
+.pop__name {
+    font-size: 25px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.pop__name p {
+    font-size: 17px;
+}
+
+.pop__price {
+    position: absolute;
+    top: 3.7rem;
+    left: 0.95rem;
+    font-size: 15px;
+    color: #9aa0a6;
+    margin-left: 0.1rem;
+    font-weight: 700;
+}
+
+.pop__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.pop__buysell button {
+    font-weight: 900;
+    color: white;
+    width: 14rem;
+    font-size: 20px;
+    border-radius: 6px;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding: 4px;
+    background-color: rgb(0, 200, 5);
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border: none;
+}
+
+
+.pop__buysell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pop__sell button {
+    background-color: red;
+}
+
+.pop__profit {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -0.2rem;
+    margin-top: -5rem;
+}
+
+.pop__profitLeft {
+    flex: 1;
+    border-radius: 5px;
+    padding: 1rem;
+    /* border: 1px solid gray; */
+    font-weight: 450;
+    width: 400px;
+}
+
+.pop__profitLeft p {
+    margin-bottom: 1rem;
+}
+
+.pop__sellRight {
+    flex: 1;
+    background-color: #1E2023;
+    border: 1px solid #42494D;
+    border-radius: 5px;
+    padding: 0.8rem;
+    /* margin-left: 2rem; */
+}
+
+.pop__input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px 0px 15px 0px;
+    border-bottom: 1px solid gray;
+}
+
+.pop__inputBox {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.pop__return span {
+    font-weight: 900;
+}
+
+
+.pop__close {
+    cursor: pointer;
+}
