@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Login from './Login'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from './firebase'
 import {useStateValue } from './StateProvider'
 import AppComp from './AppComp';
@@ -50,14 +50,3 @@ function App() {
 }
 
 export default App;
-
-
-/* <div className='app__wrapper'>
-                    <Header /> 
-                    <div className='app__body'>
-                      <div className='app_container'>
-                        <Stats />
-                        <NewsFeed/>
-                      </div>
-                    </div>
-                </div> */
