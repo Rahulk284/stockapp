@@ -38,10 +38,10 @@ function App() {
       <Router basename='/stockapp'>
         <div className="app">
             <Routes>
-                <Route exact path="/Portfolio" element={[<Header/>, <h1>I am a portfolio page</h1>]}/>
-                <Route exact path="/History" element={[<Header/>, <h1>I am a history page</h1>]}/>
-                <Route exact path="/home" element={[<Header/>, <AppComp/>]}/>
-                <Route exact path="/" element={[<Login/>]} />
+              <Route path="/stockapp/Portfolio" element={[<Header />, <h1>I am a portfolio page</h1>]} />
+              <Route path="/stockapp/History" element={[<Header />, <h1>I am a history page</h1>]} />
+              <Route path="/stockapp/home" element={[<Header />, <AppComp />]} />
+              <Route path="/stockapp/" element={[<Login />]} />
             </Routes>
         </div>
       </Router>
