@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/stockapp/static/css/main.34da346e.css",
+    "main.css": "/stockapp/static/css/main.3ed6bedf.css",
     "main.js": "/stockapp/static/js/main.ef5591e5.js",
     "static/js/787.54c73781.chunk.js": "/stockapp/static/js/787.54c73781.chunk.js",
     "static/media/icons8-robinhood.svg": "/stockapp/static/media/icons8-robinhood.bceb6ac91efc5a0c281898c3552674f6.svg",
     "static/media/robinhood.svg": "/stockapp/static/media/robinhood.d4c5626b6668d03b02ae8d6dacd6637d.svg",
     "index.html": "/stockapp/index.html",
-    "main.34da346e.css.map": "/stockapp/static/css/main.34da346e.css.map",
+    "main.3ed6bedf.css.map": "/stockapp/static/css/main.3ed6bedf.css.map",
     "main.ef5591e5.js.map": "/stockapp/static/js/main.ef5591e5.js.map",
     "787.54c73781.chunk.js.map": "/stockapp/static/js/787.54c73781.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34da346e.css",
+    "static/css/main.3ed6bedf.css",
     "static/js/main.ef5591e5.js"
   ]
 }
