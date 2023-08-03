@@ -17,7 +17,7 @@ function Login() {
     auth
         .signInWithEmailAndPassword(email, password)
         .then(auth => {
-          navigate('/stockapp/home')
+          navigate('/home')
         })
         .catch(error => alert(error.message))
 
@@ -45,7 +45,7 @@ function Login() {
               .set({
                 amount: 10000
               });
-            navigate('/stockapp/home')
+            navigate('/home')
           }
         })
         .catch(error => alert(error.message))
@@ -54,7 +54,7 @@ function Login() {
 
   return (
     <div className='login'>
-        <Link to="/stockapp/">
+        <Link to="/">
             <img
                 className='login__logo'
                 src={Logo}

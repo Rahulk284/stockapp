@@ -35,13 +35,13 @@ function App() {
 
   return (
     <>
-      <Router basename='/stockapp'>
+      <Router basename='/stockapp/'>
         <div className="app">
             <Routes>
-              <Route path="/stockapp/Portfolio" element={[<Header />, <h1>I am a portfolio page</h1>]} />
-              <Route path="/stockapp/History" element={[<Header />, <h1>I am a history page</h1>]} />
-              <Route path="/stockapp/home" element={[<Header />, <AppComp />]} />
-              <Route path="/stockapp/" element={[<Login />]} />
+                <Route exact path="/Portfolio" element={[<Header/>, <h1>I am a portfolio page</h1>]}/>
+                <Route exact path="/History" element={[<Header/>, <h1>I am a history page</h1>]}/>
+                <Route exact path="/home" element={[<Login/>]}/>
+                <Route exact path="/" element={[<Header/>, <AppComp/>]} />
             </Routes>
         </div>
       </Router>

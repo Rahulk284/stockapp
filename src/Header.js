@@ -16,7 +16,7 @@ function Header() {
 
   return (
       <div className='header__wrapper'>
-        <Link to="/stockapp/">
+        <Link to="/">
           <img 
             className='header__logo'
             src={Logo} 
@@ -43,7 +43,7 @@ function Header() {
           <div className='header__option'>
             <span className='header__optionReg'>History</span>
           </div>
-          <Link to={'/stockapp/'}>
+          <Link to={'/'}>
             <div onClick={handleAuthentication} className='header__option'>
               <span className='header__optionOne'>{user ? `Hello ${user.email}` : 'Hello Guest'}</span>
               <span className='header__optionTwo'>{user ? 'Sign Out' : 'Sign In'}</span>
