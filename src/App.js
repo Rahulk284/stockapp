@@ -7,17 +7,14 @@ import { auth } from './firebase'
 import {useStateValue } from './StateProvider'
 import AppComp from './AppComp';
 
-
-
 function App() {
-  const [, dispatch] = useStateValue();
 
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
     //runs when the app loads
     auth.onAuthStateChanged(authUser => {
       console.log('THE USER IS ', authUser);
-
       if(authUser) {
         dispatch({
           type: 'SET_USER',
@@ -35,13 +32,13 @@ function App() {
 
   return (
     <>
-      <Router basename='/stockapp/'>
+      <Router>
         <div className="app">
-            <Routes>
+            <Routes basename="/stockapp">
                 <Route exact path="/Portfolio" element={[<Header/>, <h1>I am a portfolio page</h1>]}/>
                 <Route exact path="/History" element={[<Header/>, <h1>I am a history page</h1>]}/>
-                <Route exact path="/home" element={[<Login/>]}/>
-                <Route exact path="/" element={[<Header/>, <AppComp/>]} />
+                <Route exact path="/home" element={[<Header/>, <AppComp/>]}/>
+                <Route exact path="/" element={[<Login/>]} />
             </Routes>
         </div>
       </Router>
