@@ -138,3 +138,111 @@
 .pop__close {
     cursor: pointer;
 }
+.pop__sentiment {
+    margin-top: 2rem;
+    background-color: #222;
+    /* Dark background for contrast */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #42494D;
+    /* Similar border to other sections */
+    color: white;
+    /* Text color for contrast */
+    box-shadow: 0 0 10px rgba(220, 220, 220, 0.5);
+}
+
+.pop__sentiment button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.pop__sentiment button:hover {
+    background-color: #0056b3;
+}
+
+.pop__sentiment p {
+    font-size: 16px;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.pop__sentiment ul {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.pop__sentiment li {
+    margin-bottom: 10px;
+}
+
+.pop__sentiment a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.pop__sentiment a:hover {
+    text-decoration: underline;
+}
+
+.info-icon {
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 8px;
+    position: relative;
+    top: 6px;
+}
+
+/* Tooltip Styling */
+.info-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 29px;
+    margin-left: 10px;
+    transform: translateY(100px);
+    /* Moves the icon 5px down */
+}
+
+/* Tooltip Text */
+.info-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+/* Show the Tooltip on Hover */
+.info-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Styling for the close button */
+.close-sentiment {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+}

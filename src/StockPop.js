@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { auth, db } from './firebase';
 import './StockPop.css'
 import CloseIcon from '@mui/icons-material/Close';
+import HelpIcon from '@mui/icons-material/Help';
+import axios from 'axios';
 
 function StockPop(props) {
 
@@ -17,6 +19,8 @@ function StockPop(props) {
     const [averageCost, setAverageCost] = useState(0)
     const [profitShare, setProfitShare] = useState(0)
     const [percentChange, setPercentChange] = useState(0)
+
+    const [sentiment, setSentiment] = useState(null);
 
     const handleSharesInputChange = (event) => {
         setSharesInput(event.target.value);
@@ -98,7 +102,43 @@ function StockPop(props) {
         }
       }, [props.stockData.name, props.stockData.price]);
 
+    const handleSentimentAnalysis = async () => {
+        const tickerToCompanyName = {
+            AAPL: "Apple",
+            AMZN: "Amazon",
+            GOOGL: "Alphabet",
+            NVDA: "NVIDIA",
+            IBM: "IBM",
+            JPM: "JPMorgan Chase",
+            BAC: "Bank of America",
+            ORCL: "Oracle",
+            CAT: "Caterpillar",
+            NFLX: "Netflix",
+            MSFT: "Microsoft",
+            TSLA: "Tesla",
+            META: "Meta",
+            BABA: "Alibaba",
+            UBER: "Uber",
+            SBUX: "Starbucks",
+            RIVN: "Rivian",
+            VOO: "Vanguard S&P 500",
+            AMC: "AMC Theaters",
+            GME: "GameStop",
+            NKE: "Nike"
+        };
 
+        const companyName = tickerToCompanyName[props.stockData.name];
+
+        try {
+            const response = await axios.post('https://0d0f-35-237-110-234.ngrok-free.app/analyze', {
+                ticker: props.stockData.name,
+                keyword: companyName,
+            });
+            setSentiment(response.data);
+        } catch (error) {
+            console.error('Error fetching sentiment:', error);
+        }
+    };
 
     
     if (!showPop) return null;
@@ -166,6 +206,42 @@ function StockPop(props) {
                             </div>
                         </div>
                     </div>
+                    {/* Sentiment Analysis Section */}
+                    <div className="pop__sentiment">
+                        <button onClick={handleSentimentAnalysis}>Analyze Sentiment</button>
+                        <span className="info-icon" data-tooltip="Sentiment analysis is based on an AI model analyzing recent news articles and media content listed on Yahoo Finance.">
+                            <HelpIcon />
+                        </span>
+
+                        {sentiment && (
+                            <div>
+                                <h2 
+                                    style={{ 
+                                        color: sentiment && sentiment.overall_sentiment === 'Positive' ? 'green' : 
+                                        sentiment && sentiment.overall_sentiment === 'Negative' ? 'red' : 
+                                        sentiment && sentiment.overall_sentiment === 'Neutral' ? 'yellow' : 'white' 
+                                    }}
+                                >
+                                    Overall Sentiment: {sentiment ? sentiment.overall_sentiment : 'Loading...'}
+                                </h2>
+                                <p>Confidence: {sentiment.score}</p>
+                                <p> ---------------------------------------------------------------------------------------- </p>
+                                <h3>A Recent Article:</h3>
+                                <ul>
+                                    {sentiment.articles.slice(0, 1).map((article, index) => (
+                                        <li key={index}>
+                                            <a href={article.link} target="_blank" rel="noopener noreferrer">
+                                                {article.title}
+                                            </a>
+                                            <p>Sentiment for this article: {article.sentiment} </p>
+                                            <p> ---------------------------------------------------------------------------------------- </p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+
                     
                     <div className='pop__close' onClick={handleClose}><CloseIcon/></div>
                 </div>
