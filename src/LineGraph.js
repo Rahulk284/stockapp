@@ -31,7 +31,7 @@ function LineGraph({ chartData }) {
         },
         interaction: {
             intersect: false,
-            mode: "x"
+            mode: "nearest"
         },
         plugins: {
           legend: {
