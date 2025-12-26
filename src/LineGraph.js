@@ -37,6 +37,9 @@ function LineGraph({ chartData }) {
           legend: {
             display: false, // Hide the legend
           },
+          tooltip: {
+            displayColors: false, // Hide the color box
+          },
           annotations: [addHorizontalLine()],
         },
         elements: {
