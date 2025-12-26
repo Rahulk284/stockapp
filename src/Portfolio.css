@@ -4,9 +4,16 @@
     align-items: flex-start;
 }
 
+.portfolio > h1 {
+    font-size: 32px;
+    font-weight: medium;
+    letter-spacing: -1px;
+}
+
 .portfolio__stats {
     display: flex;
-    flex-direction: row;
-    font-weight: 800;
-    font-size: 14px;
+}
+
+.portfolio__stats > p {
+    padding: 5px;
 }

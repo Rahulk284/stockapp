@@ -35,14 +35,18 @@ function Header() {
         </div> */}
 
         <div className='header__nav'>
-          
-          <div className='header__option'>
-            <span className='header__optionReg'>Portfolio</span>
-          </div>
 
-          <div className='header__option'>
-            <span className='header__optionReg'>History</span>
-          </div>
+          <Link to="/home" className='header__link'>
+            <div className='header__option'>
+              <span className='header__optionReg'>Portfolio</span>
+            </div>
+          </Link>
+
+          <Link to="/History" className='header__link'>
+            <div className='header__option'>
+              <span className='header__optionReg'>History</span>
+            </div>
+          </Link>
           <Link to={'/'}>
             <div onClick={handleAuthentication} className='header__option'>
               <span className='header__optionOne'>{user ? `Hello ${user.email}` : 'Hello Guest'}</span>

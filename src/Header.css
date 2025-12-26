@@ -85,3 +85,8 @@
     outline: none;
     text-decoration: none;
 }
+
+.header__link {
+    text-decoration: none;
+    color: inherit;
+}

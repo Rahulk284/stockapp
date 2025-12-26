@@ -6,6 +6,8 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from './firebase'
 import {useStateValue } from './StateProvider'
 import AppComp from './AppComp';
+import StockDetail from './StockDetail';
+import History from './History';
 
 function App() {
 
@@ -35,9 +37,9 @@ function App() {
       <Router>
         <div className="app">
             <Routes basename="/stockapp">
-                <Route exact path="/Portfolio" element={[<Header/>, <h1>I am a portfolio page</h1>]}/>
-                <Route exact path="/History" element={[<Header/>, <h1>I am a history page</h1>]}/>
+                <Route exact path="/History" element={[<Header/>, <History/>]}/>
                 <Route exact path="/home" element={[<Header/>, <AppComp/>]}/>
+                <Route exact path="/stock/:ticker" element={[<Header/>, <StockDetail/>]}/>
                 <Route exact path="/" element={[<Login/>]} />
             </Routes>
         </div>

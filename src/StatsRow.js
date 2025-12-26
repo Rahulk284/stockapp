@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './StatsRow.css'
 import './Stats.js'
-import StockPop from './StockPop'
 import { db, auth } from './firebase'
 
 
@@ -11,9 +11,7 @@ function StatsRow(props) {
 
   const percentage = ((props.price - props.openPrice)/props.openPrice) * 100;
   const user = auth.currentUser;
-
-  const [showPop, setShowPop] = useState(false);
-  const [selectedStock, setSelectedStock] = useState(null);
+  const navigate = useNavigate();
 
 
   
@@ -433,15 +431,7 @@ const updatePortfolioHistory = (date) => {
   const percentColor = percentage < 0 ? 'red' : '#81c995';
 
   const handleRowClick = () => {
-      // If the clicked stock is different or no stock is selected, open the pop-up for the clicked stock
-      setSelectedStock({
-        name: props.name,
-        price: props.price,
-        openPrice: props.openPrice,
-        percentage: percentage,
-        percentageColor: percentColor,
-      });
-      setShowPop(true)
+      navigate(`/stock/${props.name}`);
   };
 
 
@@ -460,16 +450,6 @@ const updatePortfolioHistory = (date) => {
             <p className='row__price'>{props.price}</p>
             <p className='row__percentage' style={{color:percentColor}}>{Number(percentage).toFixed(2)}%</p>
         </div>
-        {showPop && selectedStock && (
-            <StockPop 
-                stockData={selectedStock}
-                onBuyStock={buyStock}
-                onSellStock={sellStock}
-                showPop={true}
-                setShowPop={setShowPop}
-                setSelectedStock={setSelectedStock}
-            />
-        )}
     </div>
   )
 }
