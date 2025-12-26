@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/stockapp/static/css/main.50b5cdae.css",
-    "main.js": "/stockapp/static/js/main.b25d6653.js",
+    "main.css": "/stockapp/static/css/main.504a7b9b.css",
+    "main.js": "/stockapp/static/js/main.eb6e2845.js",
     "static/js/787.54c73781.chunk.js": "/stockapp/static/js/787.54c73781.chunk.js",
     "static/media/icons8-robinhood.svg": "/stockapp/static/media/icons8-robinhood.bceb6ac91efc5a0c281898c3552674f6.svg",
     "static/media/robinhood.svg": "/stockapp/static/media/robinhood.d4c5626b6668d03b02ae8d6dacd6637d.svg",
     "index.html": "/stockapp/index.html",
-    "main.50b5cdae.css.map": "/stockapp/static/css/main.50b5cdae.css.map",
-    "main.b25d6653.js.map": "/stockapp/static/js/main.b25d6653.js.map",
+    "main.504a7b9b.css.map": "/stockapp/static/css/main.504a7b9b.css.map",
+    "main.eb6e2845.js.map": "/stockapp/static/js/main.eb6e2845.js.map",
     "787.54c73781.chunk.js.map": "/stockapp/static/js/787.54c73781.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50b5cdae.css",
-    "static/js/main.b25d6653.js"
+    "static/css/main.504a7b9b.css",
+    "static/js/main.eb6e2845.js"
   ]
 }
